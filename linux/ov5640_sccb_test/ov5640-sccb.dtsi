@@ -1,0 +1,21 @@
+/*
+ * Add this node inside project-spec/meta-user/recipes-bsp/device-tree/files/
+ * system-user.dtsi.  GPIO offsets 54 and 55 are Zynq EMIO0 and EMIO1.
+ *
+ * GPIO_OPEN_DRAIN asks gpiolib for open-drain semantics.  When the Zynq GPIO
+ * controller cannot provide native open-drain output, gpiolib emulates it by
+ * switching a released line to input.  Do not add the deprecated boolean
+ * properties i2c-gpio,sda-open-drain or i2c-gpio,scl-open-drain: those claim
+ * that hardware outside the GPIO controller already enforces open drain.
+ */
+/ {
+    ov5640_sccb: i2c-ov5640 {
+        compatible = "i2c-gpio";
+        sda-gpios = <&gpio0 55 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+        scl-gpios = <&gpio0 54 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+        i2c-gpio,delay-us = <5>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        status = "okay";
+    };
+};

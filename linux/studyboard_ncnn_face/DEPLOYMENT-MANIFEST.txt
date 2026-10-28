@@ -1,0 +1,26 @@
+StudyBoard NCNN face detector deployment manifest
+Generated: 2026-09-24 Asia/Shanghai
+
+Training/export
+---------------
+Ultralytics: 8.4.135
+pnnx:        20260526
+ncnn Python: 1.0.20260526
+input:       in0 [1,3,320,320]
+output:      out0 [1,5,2100]
+class:       0 face
+
+NCNN runtime source
+-------------------
+tag:         20260526
+commit:      e54f7b1f88434e1d844ea0551b880a1cfb079ce1
+archive:     ncnn-20260526-source.tar.gz
+sha256:      404B3798D50980F98798AA54765DC85EE2A7A06CDC6C33C6BEAB4BC4EE6E2EA6
+
+Model files
+-----------
+model.ncnn.param
+sha256:      FDECA3C6A48921D30C613E20EDCEA602D00BA8C49C512BC9E5462EC1DCCD244C
+
+model.ncnn.bin
+sha256:      763469A0D1E821686D0F17C3BD1B37E2E2E39023684179E2F7BBA77AF899359D

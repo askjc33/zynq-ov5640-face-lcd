@@ -1,0 +1,24 @@
+/*
+ * Add this node at the root level of system-user.dtsi.
+ *
+ * AXI VDMA channel selectors:
+ *   0 = MM2S (memory to stream)
+ *   1 = S2MM (stream to memory)
+ *
+ * Capture and display are separate sysfs-controlled stages:
+ *   capture = VDMA0 S2MM, processed stream to DDR
+ *   display = VDMA1 MM2S, the same DDR frames to the PL LCD writer
+ */
+/ {
+    studyboard_frame_capture: studyboard-frame-capture {
+        compatible = "studyboard,frame-capture-1.0";
+        dmas = <&axi_vdma_0 1>, <&axi_vdma_1 0>;
+        dma-names = "capture", "display";
+
+        width = <640>;
+        height = <480>;
+        bytes-per-pixel = <3>;
+        frame-count = <3>;
+        status = "okay";
+    };
+};

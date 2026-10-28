@@ -1,0 +1,15 @@
+* text=auto
+*.sh text eol=lf
+*.tcl text eol=lf
+*.py text eol=lf
+*.ps1 text eol=crlf
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.v text eol=lf
+*.xdc text eol=lf
+*.param -text
+*.bin binary
+*.pt binary
+*.png binary
+*.jpg binary
